@@ -3,7 +3,7 @@ import { Web3Connect } from "./web3-connect";
 
 export const SignInBar = () => {
 	return (
-		<div className="grid grid-cols-4">
+		<div className="grid grid-cols-4 mb-14">
 			<div>
 				<Logo />
 			</div>
