@@ -1,7 +1,12 @@
+"use client"; 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"; 
+import { Modal, ModalContent, ModalHeader, ModalBody, useDisclosure } from "@nextui-org/react";
+import { StakingModal } from "./staking-modal"
 
 export const StakingInfo = () => {
+	const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
 	return (
 		<>
 			<div className="grid grid-cols-3 grid-rows-2">
@@ -44,11 +49,33 @@ export const StakingInfo = () => {
 				</div>
 
 				<div className="flex flex-col items-center justify-center">
-					<Button className="flex bg-[#00C850] font-bruno rounded-full pl-10 pr-10 lg:pl-14 lg:pr-14 lg:text-xl hover:bg-clock"> 
+					<Button 
+						className="flex bg-[#00C850] font-bruno rounded-full pl-10 pr-10 lg:pl-14 lg:pr-14 lg:text-xl hover:bg-clock"
+						onClick={onOpen}
+					> 
 						<p className="font-bruno">
 							Stake
 						</p>
 					</Button>
+
+						<Modal 
+							className="bg-black rounded-lg outline outline-1 outline-slate-500"
+							isOpen={isOpen} 
+							onOpenChange={onOpenChange}
+							backdrop="blur"
+							size="5xl"
+						>
+							<ModalContent>
+							 {(onClose) => (
+								<>
+            			  <ModalHeader className="flex flex-col gap-1 items-center font-bruno"> Staking </ModalHeader>
+            			  <ModalBody className="p-14">
+							  <StakingModal />
+            			  </ModalBody>
+            			</>
+          )}
+					</ModalContent>
+				</Modal>
 				</div>
 
 				<div className="flex flex-col items-center justify-center">

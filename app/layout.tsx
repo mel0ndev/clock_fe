@@ -4,6 +4,7 @@ import { Noto_Sans, Bruno_Ace } from "next/font/google";
 import '@rainbow-me/rainbowkit/styles.css';
 import { ThemeProvider } from "@/components/theme-provider"
 import { Providers } from "./providers"; 
+import { NextProviders } from "./next-providers"
 
 export const brunoAce = Bruno_Ace({
 	weight: '400',
@@ -36,7 +37,9 @@ export default function RootLayout({
          	 >
 						<body className={`${notoSans.variable} ${brunoAce.variable}`}>
 							<Providers>
-	  	 	   			  	  {children}
+								<NextProviders>
+									{children}
+								</NextProviders>
 							</Providers>
 	  	 	   			</body>
 		 	</ThemeProvider>

@@ -14,23 +14,14 @@ import {
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import {
-  arbitrum,
-  base,
   mainnet,
-  optimism,
-  polygon,
   sepolia,
-  zora,
 } from 'wagmi/chains';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
+	sepolia, 
     mainnet,
-    polygon,
-    optimism,
-    arbitrum,
-    base,
-    zora,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
   ],
   [publicProvider()]
