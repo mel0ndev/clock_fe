@@ -1,9 +1,12 @@
+"use client"
 import Image from "next/image"; 
 import { MdContentCopy } from "react-icons/md";
-
+//import { TokenMetadata } from "@/app/hooks/token"; 
 import { Button } from "@/components/ui/button"; 
+//import { useAccount } from "wagmi"
 
 export const MainCard = () => {
+
 	return (
 		<div className="sm:pl-10">
 			<div>
@@ -16,7 +19,7 @@ export const MainCard = () => {
 
 			<div className="mt-10 sm:pl-10"> 
 				<p> 
-					Stake your Clock for additional token rewards every hour based on the duration you've staked.	
+					Stake your Clock for additional token rewards every hour based on the duration you've staked.
 				</p> 
 			</div> 
 			<div className="mt-10 pb-14 sm:pl-10"> 
@@ -36,13 +39,13 @@ export const MainCard = () => {
 					Smart Contract Address: 
 				</p>
 				<div className="bg-gray-800 inline-flex static h-10 items-center rounded-md lg:pl-4 lg:pr-4 lg:ml-10 lg:mr-10 sm:ml-5 sm:mr-5"> 
-					<p>
+					<p className="sm:ml-4">
 						0x0sd0x0x03023401234021342134
 					</p>
 					<Button 
 						variant="ghost" 
 						size="icon"
-						className="ml-6 hover:bg-gray-300 w-6 h-6"
+						className="ml-5 mr-1 hover:bg-gray-300 w-6 h-6"
 					> 
 						<MdContentCopy />
 					</Button>

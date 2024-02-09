@@ -68,10 +68,10 @@ export const StakingInfo = () => {
 							<ModalContent>
 							 {(onClose) => (
 								<>
-            			  <ModalHeader className="flex flex-col gap-1 items-center font-bruno"> Staking </ModalHeader>
             			  <ModalBody className="p-14">
-							  <StakingModal />
+							  <StakingModal depositOnClose={onClose}/>
             			  </ModalBody>
+
             			</>
           )}
 					</ModalContent>

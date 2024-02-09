@@ -1,6 +1,7 @@
 import Image from "next/image"; 
 
 export const MainPageImage = () => {
+
 	return (
 		<>
 			<div className="mr-14">

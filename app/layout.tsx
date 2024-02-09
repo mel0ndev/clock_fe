@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   description: "Time is running out...",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,18 +30,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+		<body className={`${notoSans.variable} ${brunoAce.variable}`}>
 			<ThemeProvider
-		 	   attribute="class"
-         	   defaultTheme="dark"
-         	 >
-						<body className={`${notoSans.variable} ${brunoAce.variable}`}>
-							<Providers>
-								<NextProviders>
-									{children}
-								</NextProviders>
-							</Providers>
-	  	 	   			</body>
-		 	</ThemeProvider>
+			   attribute="class"
+    		   defaultTheme="dark"
+    		 >
+				<Providers> 
+					<NextProviders>
+						{children}
+					</NextProviders>
+				</Providers>
+			</ThemeProvider>
+		</body>
     </html>
   );
 }

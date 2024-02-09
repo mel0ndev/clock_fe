@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import {
   RainbowKitProvider,
@@ -16,12 +15,15 @@ import { publicProvider } from 'wagmi/providers/public';
 import {
   mainnet,
   sepolia,
+  localhost,
 } from 'wagmi/chains';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
 	sepolia, 
     mainnet,
+	localhost,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
   ],
   [publicProvider()]
@@ -52,7 +54,7 @@ const connectors = connectorsForWallets([
 ]);
 
 const wagmiConfig = createConfig({
-  autoConnect: true,
+  autoConnect: false,
   connectors,
   publicClient,
   webSocketPublicClient,
@@ -60,12 +62,16 @@ const wagmiConfig = createConfig({
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = React.useState(false);
+  const [client] = React.useState(new QueryClient()); 
   React.useEffect(() => setMounted(true), []);
+
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} appInfo={demoAppInfo}>
-        {mounted && children}
-      </RainbowKitProvider>
+	  <QueryClientProvider client={client}>
+        <RainbowKitProvider chains={chains} appInfo={demoAppInfo}>
+          {mounted && children}
+        </RainbowKitProvider>
+	  </QueryClientProvider>
     </WagmiConfig>
   );
 }

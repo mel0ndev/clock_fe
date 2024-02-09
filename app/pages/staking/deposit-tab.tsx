@@ -1,31 +1,35 @@
-import { Button } from "@/components/ui/button"; 
-import { useDisclosure } from "@nextui-org/react";
+//import { Button } from "@/components/ui/button"; 
+import { Input, useDisclosure, Button } from "@nextui-org/react";
+import { formatEther } from "viem"; 
+import { useToken } from "@/app/hooks/token"; 
 
-export const DepositTab = () => {
+export const DepositTab = ({input, setInput}: any) => {
+	const { balance } = useToken();
+
 	return (
 		<>
-			<div> 
+			<div className="pl-14 pr-14"> 
 				<p>
-					balance
+					Balance:  {balance ? formatEther(balance).toLocaleString() : '0'}
 				</p> 
-				<div className="w-full p-5 rounded-xl bg-slate-800">
+
+				<div className="w-full rounded-xl bg-slate-800 flex-wrap md:flex-nowrap gap-4">
+					<Input 
+						size="sm" 
+						type="text" 
+						label="Enter Amount:" 
+						value={input}
+						onChange={(e) => {
+							e.preventDefault; 
+							setInput(e.target.value)
+						}}
+						classNames={{
+							label: "font-bruno text-black/50 dark:text-white/90",
+							input: "font-bruno"
+						}}
+					/> 
 				</div>
-
-				<div className="grid grid-cols-2 gap-x-4 mt-10"> 
-					<Button
-						className="bg-white font-bruno rounded-full"
-					>
-						Cancel
-					</Button>
-
-					<Button 
-						className="bg-clock font-bruno rounded-full"
-					> 
-						Approve
-					</Button>
-				</div> 
 			</div> 
-
 		</>
 	); 
 }
