@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 
 export const DepositButton = ({amount}: any) => {
-	if (amount != 0) {
 		const { config } = usePrepareContractWrite({
 			address: stakingAddress,
 			abi: StakingAbi,
@@ -19,19 +18,10 @@ export const DepositButton = ({amount}: any) => {
 		return (
 			<Button 
 				className="bg-clock font-bruno rounded-full"
+				disabled={!write}
 				onClick={() => write?.()}
 			> 
 				Deposit
 			</Button>
-		); 
-	} else {
-			return (
-			<Button 
-				className="bg-clock font-bruno rounded-full"
-			> 
-				Deposit
-			</Button>
-		); 
-		
-	}
+	);
 }
