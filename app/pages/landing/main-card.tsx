@@ -24,7 +24,7 @@ export const MainCard = () => {
 
 			<div className="mt-10 sm:pl-10"> 
 				<p> 
-					Stake your Clock for additional token rewards every hour based on the duration you&aposve staked.
+					Stake your Clock for additional token rewards every hour based on the duration you&apos;ve staked.
 				</p> 
 			</div> 
 			<div className="mt-10 pb-12 sm:pl-10 w-10"> 
