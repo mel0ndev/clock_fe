@@ -5,8 +5,7 @@ import { useToken, useBlock } from "@/app/hooks/token";
 import { calculateUnstakedAmount } from "@/app/utils/calculate"
 
 export const PaymentComponent = () => {
-	const { balance, unstakedAmount, reserves } = useToken(); 
-	console.log(reserves); 
+	const { balance, unstakedAmount } = useToken(); 
 	const block = useBlock(); 
 	let hoursStaked: bigint; 
 	let calculatedAmount;  

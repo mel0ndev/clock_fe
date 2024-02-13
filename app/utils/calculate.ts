@@ -14,7 +14,6 @@ export function calculateUnstakedAmount(initialAmount: number, hours: number) {
 			}
 
 			amount = compoundInterestWithIncreasingRate(bal, hoursToPass); 
-			console.log(amount); 
 			bal = amount; 
 		}
 	} else {
