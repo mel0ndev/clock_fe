@@ -28,7 +28,7 @@ export const PaymentComponent = () => {
 
 	return (
 			<>
-				<div className="grid grid-cols-2 grid-rows-3 p-10 gap-5"> 
+				<div className="grid md:grid-cols-2 md:grid-rows-3 p-5 md:p-10 gap-5 text-center md:text-left"> 
 							{balances.map((b) => (
 								<>
 							<div className="flex flex-col justify-center"> 

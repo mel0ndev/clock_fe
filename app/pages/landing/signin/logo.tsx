@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const Logo = () => {
 	return (
-		<div className="flex ml-14 mt-5">
+		<div className="flex ml-5 md:ml-14 mt-5">
 			<Image 
 				src="/logo.png"		
 				alt="logo"

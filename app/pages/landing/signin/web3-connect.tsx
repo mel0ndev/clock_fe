@@ -3,14 +3,10 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 export const Web3Connect = () => {
 	return (
 		<div
-		className="flex justify-center mt-4 mr-10"
-		style={{
-        display: 'flex',
-        justifyContent: 'flex-end',
-        padding: 12,
-      }}
-		> 
-			<ConnectButton />
+		className="flex justify-end mt-4 md:mr-10 text-center p-4"> 
+			<ConnectButton 
+				label="Connect"
+			/>
 		</div> 
 	); 
 }

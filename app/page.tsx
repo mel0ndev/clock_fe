@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SignInBar } from "@/app/pages/landing/signin/index"
-import { MainPageImage } from "@/app/pages/landing/main-image"
+import { MainImageWrapper } from "@/app/pages/landing/main-image-wrapper"
 import { MainCard } from "@/app/pages/landing/main-card"
 import Staking from "@/app/pages/staking/index"
 import PaymentDashboard from "@/app/pages/dashboard/index"
@@ -12,12 +12,12 @@ export default function Home() {
 			<div className="bg-[url('../public/Glowglow.png')] bg-no-repeat">
 		  	  <SignInBar /> 
 
-		  	  	<div className="grid grid-cols-3 items-center">
-		  	    	<div className="col-span-2 flex pl-4 mb-16"> 
+				<div className="md:grid md:grid-cols-3 md:items-center flex justify-center md:h-3/4 md:pb-16">
+					<div className="md:col-span-2 md:flex md:pl-4"> 
 		  	    	 	<MainCard /> 
 		  	    	</div> 
-		  	    	<div className="flex flex-end col-start-3 col-span-1 mb-14 pb-16"> 
-		  	    	 	<MainPageImage /> 
+					<div className="hidden lg:flex lg:justify-center lg:h-full lg:w-full lg:col-start-3 lg:col-span-1 lg:ml-14"> 
+							<MainImageWrapper /> 
 					</div> 
 				</div>
 

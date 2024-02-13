@@ -12,7 +12,7 @@ const PaymentDashboard = () => {
 				</div>
 
 				<div className="grid grid-cols-8 flex"> 
-				<div className="bg-black bg-opacity-25 outline outline-1 outline-slate-500 h-full w-full col-span-6 col-start-2 col-end-8 rounded-xl"> 
+					<div className="bg-black bg-opacity-25 outline outline-1 outline-slate-500 h-full w-full col-span-8 md:col-span-6 md:col-start-2 md:col-end-8 rounded-xl"> 
 					<PaymentComponent /> 
 				</div>
 				</div> 

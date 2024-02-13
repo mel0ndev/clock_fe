@@ -4,8 +4,8 @@ import { StakingInfo } from "./info";
 const Staking = () => {
 	return (
 		<>
-			<div className="flex flex-col items-center lg:mt-14 mb-14 lg:mg-14">
-				<h1 className="font-bruno"> 
+			<div className="flex flex-col md:mt-14 mb-8 md:mb-14">
+				<h1 className="font-bruno flex justify-center"> 
 					Hourly rewards compounding
 				</h1> 
 			</div>
@@ -14,15 +14,15 @@ const Staking = () => {
 				<StakingInfo />
 			</div>
 		</div>
-		<div className="flex flex-col items-center align-center mb-10">
+			<div className="flex flex-col items-center mb-5 md:mb-10 mt-2">
 			<Image 
 				src="/howitworks.svg"
 				alt="how it works"
 				width={500}
 				height={500}
-				className="lg:mb-14 sm:mt-5 lg:mt-14"
+				className="md:mb-14 md:mt-5 md:mt-14"
 			/>
-			<div className="lg:mt-8"></div>
+			<div className="md:mt-8"></div>
 		</div>
 		</> 
 	); 

@@ -17,7 +17,7 @@ export const StakingModal = ({depositOnClose}: any) => {
 	const [input, setInput] = useState(); 
 		
 	return (
-    <div className="flex flex-col pl-14 pr-14">
+		<div className="flex flex-col md:pl-14 md:pr-14">
 		<Tabs 
 			variant="underlined"
 			fullWidth={false}
@@ -31,11 +31,11 @@ export const StakingModal = ({depositOnClose}: any) => {
         }}
 		>
 		<Tab key="deposit" title="Deposit">
-          <Card className="pl-14 pr-14 bg-transparent outline-0 outline-black">
+			<Card className="md:pl-14 md:pr-14 bg-transparent outline-0 outline-black">
             <CardBody className="outline-0 mb-5">
 				<DepositTab input={input} setInput={setInput}/>
             </CardBody>
-				<div className="grid grid-cols-2 gap-x-4 mr-14 mb-10 ml-14"> 
+				<div className="grid grid-cols-2 gap-x-4 mr-2 ml-2 md:mr-14 mb-10 md:ml-14"> 
 					<Button
 						className="bg-white font-bruno rounded-full"
 						onClick={depositOnClose}
@@ -53,11 +53,11 @@ export const StakingModal = ({depositOnClose}: any) => {
           </Card>  
         </Tab>
         <Tab key="withdraw" title="Withdraw">
-          <Card className="pl-14 pr-14 bg-transparent outline-0 outline-black">
+			<Card className="md:pl-14 md:pr-14 bg-transparent outline-0 outline-black">
             <CardBody className="outline-0 mb-5">
 				<WithdrawTab />
             </CardBody>
-				<div className="grid grid-cols-2 gap-x-4 mr-14 mb-10 ml-14"> 
+				<div className="grid grid-cols-2 gap-x-4 mr-2 ml-2 md:mr-14 mb-10 md:ml-14"> 
 					<UnstakeButton />
 
 					<Button 

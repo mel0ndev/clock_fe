@@ -8,12 +8,12 @@ export const DepositTab = ({input, setInput}: any) => {
 
 	return (
 		<>
-			<div className="pl-14 pr-14"> 
+			<div className="md:pl-14 md:pr-14 pt-1"> 
 				<p>
 					Balance:  {balance ? formatEther(balance).toLocaleString() : '0'}
 				</p> 
 
-				<div className="w-full rounded-xl bg-slate-800 flex-wrap md:flex-nowrap gap-4">
+				<div className="w-full rounded-xl bg-slate-800 md:flex-nowrap gap-4">
 					<Input 
 						size="sm" 
 						type="text" 
@@ -24,7 +24,7 @@ export const DepositTab = ({input, setInput}: any) => {
 							setInput(e.target.value)
 						}}
 						classNames={{
-							label: "font-bruno text-black/50 dark:text-white/90",
+							label: "font-bruno text-sm md:text-md text-black/50 dark:text-white/90",
 							input: "font-bruno"
 						}}
 					/> 

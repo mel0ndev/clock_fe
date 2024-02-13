@@ -4,6 +4,7 @@ import {
   RainbowKitProvider,
   getDefaultWallets,
   connectorsForWallets,
+  darkTheme
 } from '@rainbow-me/rainbowkit';
 import {
   argentWallet,
@@ -37,7 +38,7 @@ const { wallets } = getDefaultWallets({
 });
 
 const demoAppInfo = {
-  appName: 'Rainbowkit Demo',
+  appName: 'ClockClock Token',
 };
 
 const connectors = connectorsForWallets([
@@ -67,7 +68,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiConfig config={wagmiConfig}>
 	  <QueryClientProvider client={client}>
-        <RainbowKitProvider chains={chains} appInfo={demoAppInfo}>
+        <RainbowKitProvider chains={chains} appInfo={demoAppInfo} theme={darkTheme()}>
           {mounted && children}
         </RainbowKitProvider>
 	  </QueryClientProvider>
