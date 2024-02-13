@@ -1,19 +1,19 @@
-import { useToken, stakingAddress } from "@/app/hooks/token"; 
+import { useToken, stakingAddress, clockTokenAddress } from "@/app/hooks/token"; 
 import { usePrepareContractWrite, useContractWrite } from 'wagmi'; 
-import { StakingAbi } from "@/app/hooks/abi/stakingAbi"
+import { ABI } from "@/app/hooks/abi/abi"
 
 import { Button } from "@/components/ui/button"; 
 
 
-export const DepositButton = ({amount}: any) => {
+export const ApproveButton = ({amount}: any) => {
+
 	if (amount != 0) {
 		const { config } = usePrepareContractWrite({
-			address: stakingAddress,
-			abi: StakingAbi,
-			functionName: 'stake',
-			args: [amount], 
-		}); 
-
+				address: clockTokenAddress,
+				abi: ABI,
+				functionName: 'approve',
+				args: [stakingAddress, amount], 
+			})
 		const { data, isLoading, isSuccess, write } = useContractWrite(config); 
 
 		return (
@@ -21,17 +21,16 @@ export const DepositButton = ({amount}: any) => {
 				className="bg-clock font-bruno rounded-full"
 				onClick={() => write?.()}
 			> 
-				Deposit
+				Approve
 			</Button>
 		); 
 	} else {
-			return (
+		return (
 			<Button 
 				className="bg-clock font-bruno rounded-full"
 			> 
-				Deposit
+				Approve
 			</Button>
 		); 
-		
 	}
 }

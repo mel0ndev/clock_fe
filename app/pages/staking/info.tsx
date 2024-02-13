@@ -50,7 +50,7 @@ export const StakingInfo = () => {
 
 				<div className="flex flex-col items-center justify-center">
 					<Button 
-						className="flex bg-[#00C850] font-bruno rounded-full pl-10 pr-10 lg:pl-14 lg:pr-14 lg:text-xl hover:bg-clock"
+						className="flex bg-[#00C850] font-bruno rounded-full pl-10 pr-10 lg:pl-14 lg:pr-14 lg:text-lg hover:bg-clock"
 						onClick={onOpen}
 					> 
 						<p className="font-bruno">

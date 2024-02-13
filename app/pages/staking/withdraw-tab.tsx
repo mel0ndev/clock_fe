@@ -1,34 +1,56 @@
-import { Button } from "@/components/ui/button"; 
-import { useDisclosure } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
+import { useToken } from "@/app/hooks/token"; 
+import { formatEther } from "viem"; 
 
-export const WithdrawTab = () => {
+export const WithdrawTab = ({input, setInput}: any) => {
+	const { balance, multipliedAmount } = useToken();
+
 	return (
 		<>
-			<div> 
+			<div className="pl-14 pr-14"> 
 				<p>
-					balance
+					Balance:  {balance ? formatEther(balance).toLocaleString() : '0'}
 				</p> 
 
 				<div className="grid grid-cols-2 gap-x-5">
-					<div className="w-full p-5 rounded-xl bg-slate-800">
-					</div>
-					<div className="w-full p-5 rounded-xl bg-slate-800">
-					</div>
+				<div className="w-full rounded-xl bg-slate-800 flex-wrap md:flex-nowrap gap-4">
+					<Input 
+						size="sm" 
+						type="text" 
+						isReadOnly
+						label="Unstake Amount:" 
+						value={
+							multipliedAmount ? 
+							(Number(multipliedAmount) / 1e18).toString()
+							: '0'
+						}
+						onChange={(e) => {
+							e.preventDefault; 
+							setInput(e.target.value)
+						}}
+						classNames={{
+							label: "font-bruno text-muted-foreground text-black/50 dark:text-white/90",
+							input: "font-bruno"
+						}}
+					/> 
 				</div>
 
-				<div className="grid grid-cols-2 gap-x-4 mt-10"> 
-					<Button
-						className="bg-white font-bruno rounded-full"
-					>
-						Unstake
-					</Button>
+				<div className="w-full rounded-xl bg-slate-800 flex-wrap md:flex-nowrap gap-4">
+					<Input 
+						size="sm" 
+						type="text" 
+						isReadOnly
+						label="Claim Amount:"
+						value={multipliedAmount ? (Number(multipliedAmount) / 1e18).toString() : '0'}
+						classNames={{
+							label: "font-bruno text-black/50 dark:text-white/90",
+							input: "font-bruno"
+						}}
+					/> 
+				</div>
 
-					<Button 
-						className="bg-clock font-bruno rounded-full"
-					> 
-						Claim
-					</Button>
-				</div> 
+				</div>
+
 			</div> 
 
 		</>

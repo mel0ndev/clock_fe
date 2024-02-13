@@ -12,11 +12,11 @@ export default function Home() {
 			<div className="bg-[url('../public/Glowglow.png')] bg-no-repeat">
 		  	  <SignInBar /> 
 
-		  	  	<div className="grid grid-cols-5 items-center">
-		  	    	<div className="col-span-3 flex pl-14 mr-14 mb-16"> 
+		  	  	<div className="grid grid-cols-3 items-center">
+		  	    	<div className="col-span-2 flex pl-4 mb-16"> 
 		  	    	 	<MainCard /> 
 		  	    	</div> 
-		  	    	<div className="flex flex-end col-start-4 col-span-2 mb-14 pb-16"> 
+		  	    	<div className="flex flex-end col-start-3 col-span-1 mb-14 pb-16"> 
 		  	    	 	<MainPageImage /> 
 					</div> 
 				</div>

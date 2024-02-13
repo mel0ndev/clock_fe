@@ -4,8 +4,8 @@ export const MainPageImage = () => {
 
 	return (
 		<>
-			<div className="mr-14">
-				<div className="lg:bg-black lg:flex lg:outline lg:outline-1 lg:outline-slate-500 lg:rounded-xl lg:p-10 lg:h-full sm:hidden">
+			<div>
+				<div className="lg:bg-black lg:flex lg:outline lg:outline-1 lg:outline-slate-500 lg:rounded-xl lg:p-10 lg:h-full md:hidden sm:hidden">
 					<Image 
 						src="/maincard.png"
 						alt="main"

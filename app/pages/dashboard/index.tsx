@@ -1,4 +1,5 @@
 import { PaymentComponent } from "./dashboard"; 
+import Footer from "@/app/pages/footer/index"
 
 const PaymentDashboard = () => {
 	return (
@@ -15,6 +16,9 @@ const PaymentDashboard = () => {
 					<PaymentComponent /> 
 				</div>
 				</div> 
+				<div className="mb-14 mt-14"></div>
+				<div className="mb-14 mt-14"></div>
+				<Footer />
 			</div> 
 		</div>
 	);

@@ -23,7 +23,6 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
 	sepolia, 
     mainnet,
-	localhost,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
   ],
   [publicProvider()]
@@ -54,7 +53,7 @@ const connectors = connectorsForWallets([
 ]);
 
 const wagmiConfig = createConfig({
-  autoConnect: false,
+  autoConnect: true,
   connectors,
   publicClient,
   webSocketPublicClient,
