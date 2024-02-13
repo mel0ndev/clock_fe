@@ -6,22 +6,17 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Providers } from "./providers"; 
 import { NextProviders } from "./next-providers"
 
-export const brunoAce = Bruno_Ace({
+const brunoAce = Bruno_Ace({
 	weight: '400',
 	variable: "--font-bruno",
 	preload: false,
 });
 
-export const notoSans = Noto_Sans({
+const notoSans = Noto_Sans({
 	weight: '400',
 	variable: "--font-noto",
 	subsets: ['latin']
 }); 
-
-export const metadata: Metadata = {
-  title: "Clock Clock",
-  description: "Time is running out...",
-};
 
 export default function RootLayout({
   children,
