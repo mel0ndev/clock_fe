@@ -29,13 +29,13 @@ export const MainCard = () => {
 			<div className="md:pl-10">
 				<div className="flex justify-center md:inline-block md:justify-start">
 					<p className="text-3xl md:text-5xl text-clock font-bruno md:tracking-wider"> 
-						Tick Tock... 
+						Clock Clock... 
 					</p> 
 				</div>
 			</div>
 			<div className="mt-2 md:mt-1 md:inline-flex justify-center md:justify-start">
-				<p className="mt-4 md:pl-14 text-2xl flex justify-center md:justify-start mb-4"><i> the clock is </i></p>
-				<p className="md:pl-2 flex justify-center md:justify-start text-5xl text-clock font-bruno tracking-widest"> Ticking </p> 
+				<p className="mt-4 md:pl-14 text-2xl flex justify-center md:justify-start mb-4"><i> the time is </i></p>
+				<p className="md:pl-2 flex justify-center md:justify-start text-5xl text-clock font-bruno tracking-widest"> Running</p> 
 			</div>
 
 			<div className="mt-5 flex justify-center md:justify-start"> 
