@@ -12,8 +12,38 @@ export const StakingAbi = [
     },
     {
       "inputs": [],
+      "name": "PeriodNotFinished",
+      "type": "error"
+    },
+    {
+      "inputs": [],
       "name": "ZeroAmount",
       "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "Claim",
+      "type": "event"
     },
     {
       "anonymous": false,
@@ -67,12 +97,6 @@ export const StakingAbi = [
           "internalType": "address",
           "name": "staker",
           "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
         },
         {
           "indexed": false,
@@ -463,6 +487,19 @@ export const StakingAbi = [
     },
     {
       "inputs": [],
+      "name": "claim",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "clock",
       "outputs": [
         {
@@ -589,6 +626,11 @@ export const StakingAbi = [
         {
           "internalType": "uint256",
           "name": "stakeStart",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stakeEnd",
           "type": "uint256"
         }
       ],
@@ -725,13 +767,7 @@ export const StakingAbi = [
     {
       "inputs": [],
       "name": "unstake",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
+      "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     }

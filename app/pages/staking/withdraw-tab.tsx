@@ -1,9 +1,21 @@
 import { Input } from "@nextui-org/react";
-import { useToken } from "@/app/hooks/token"; 
+import { useState, useEffect } from "react"; 
+import { useToken, useBlock } from "@/app/hooks/token"; 
 import { formatEther } from "viem"; 
 
 export const WithdrawTab = ({input, setInput}: any) => {
-	const { balance, multipliedAmount } = useToken();
+	const [hours, setHours] = useState(BigInt(0)); 
+	const { balance, multipliedAmount, unstakedAmount } = useToken();
+	const block = useBlock(); 
+
+
+	//maybe use useEffect here
+	useEffect(() => {
+		if (block && unstakedAmount) {
+			let hours = (block.timestamp - unstakedAmount?.[2]) / BigInt(60 * 60); 
+			setHours(hours); 
+		}
+	}, [])
 
 	return (
 		<>
@@ -33,6 +45,7 @@ export const WithdrawTab = ({input, setInput}: any) => {
 						}}
 					/> 
 				</div>
+			
 
 				<div className="w-full rounded-xl bg-slate-800 md:flex-nowrap gap-4">
 					<Input 
@@ -40,7 +53,7 @@ export const WithdrawTab = ({input, setInput}: any) => {
 						type="text" 
 						isReadOnly
 						label="Claim:"
-						value={multipliedAmount ? (Number(multipliedAmount) / 1e18).toString() : '0'}
+						value={hours >= 72 ? (Number(multipliedAmount) / 1e18).toString() : '0'}
 						classNames={{
 							label: "font-bruno text-xs md:text-md text-black/50 dark:text-white/90 mb-2",
 							input: "font-bruno"
