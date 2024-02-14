@@ -4,7 +4,7 @@ import { StakingInfo } from "./info";
 const Staking = () => {
 	return (
 		<>
-			<div className="flex flex-col md:mt-14 mb-8 md:mb-14">
+			<div className="flex flex-col md:mt-14 pt-10 mb-8 md:mb-14">
 				<h1 className="font-bruno flex justify-center"> 
 					Hourly rewards compounding
 				</h1> 

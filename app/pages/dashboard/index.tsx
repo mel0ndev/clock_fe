@@ -4,8 +4,8 @@ import Footer from "@/app/pages/footer/index"
 const PaymentDashboard = () => {
 	return (
 		<div className="bg-[url('../public/money.gif')] bg-opacity-5 bg-cover"> 
-			<div className="p-10 rounded-full glow blur-10">
-				<div className="flex flex-col items-center mb-10">
+			<div className="pt-10 pl-5 pr-5 md:pl-0 md:pr-0 rounded-full glow blur-10">
+				<div className="flex justify-center mb-10">
 					<h1 className="font-bruno"> 
 						Payment Dashboard
 					</h1> 

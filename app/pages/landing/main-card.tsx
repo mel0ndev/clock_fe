@@ -33,13 +33,13 @@ export const MainCard = () => {
 					</p> 
 				</div>
 			</div>
-			<div className="mt-2 md:inline-flex justify-center md:justify-start">
+			<div className="mt-2 md:mt-1 md:inline-flex justify-center md:justify-start">
 				<p className="mt-4 md:pl-14 text-2xl flex justify-center md:justify-start mb-4"><i> the clock is </i></p>
 				<p className="md:pl-2 flex justify-center md:justify-start text-5xl text-clock font-bruno tracking-widest"> Ticking </p> 
 			</div>
 
-			<div className="mt-10 flex justify-center md:justify-start"> 
-				<p className="text-center md:justify-start md:text-left overflow-wrap p-10"> 
+			<div className="mt-5 flex justify-center md:justify-start"> 
+				<p className="text-center md:justify-start md:text-left p-10"> 
 					Stake your Clock for additional token rewards every hour based on the duration you&apos;ve staked.
 				</p> 
 			</div> 
