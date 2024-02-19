@@ -18,6 +18,10 @@ const notoSans = Noto_Sans({
 	subsets: ['latin']
 }); 
 
+export const metadata = {
+  title: "$CLOCK",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
