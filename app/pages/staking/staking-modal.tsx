@@ -4,6 +4,7 @@ import { DepositTab } from "./deposit-tab";
 import { DepositButton } from "./deposit-button"; 
 import { ApproveButton } from "./approve-button"; 
 import { UnstakeButton } from "./unstake-button"; 
+import { ClaimButton } from "./claim-button"; 
 import { WithdrawTab } from "./withdraw-tab"; 
 import { Button } from "@/components/ui/button"; 
 import { useToken, stakingAddress } from "@/app/hooks/token"; 
@@ -59,12 +60,7 @@ export const StakingModal = ({depositOnClose}: any) => {
             </CardBody>
 				<div className="grid grid-cols-2 gap-x-4 mr-2 ml-2 md:mr-14 mb-10 md:ml-14"> 
 					<UnstakeButton />
-
-					<Button 
-						className="bg-clock font-bruno rounded-full"
-					> 
-						Claim
-					</Button>
+					<ClaimButton /> 
 				</div> 
           </Card>  
         </Tab>

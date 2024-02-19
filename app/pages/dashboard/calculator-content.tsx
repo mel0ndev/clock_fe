@@ -54,7 +54,7 @@ export const CalculatorContent = () => {
 				<div className="grid grid-cols-3 flex gap-x-3 justify-center items-center"> 
 					<Input 
 						size="sm" 
-						type="text" 
+						type="number" 
 						value={days}
 						endContent={
 						  <div className="pointer-events-none flex items-center">
@@ -73,7 +73,7 @@ export const CalculatorContent = () => {
 
 					<Input 
 						size="sm" 
-						type="text" 
+						type="number" 
 						value={hours}
 						endContent={
 						  <div className="pointer-events-none flex items-center">

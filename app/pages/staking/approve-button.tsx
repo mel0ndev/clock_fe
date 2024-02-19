@@ -1,5 +1,6 @@
 import { useToken, stakingAddress, clockTokenAddress } from "@/app/hooks/token"; 
-import { usePrepareContractWrite, useContractWrite } from 'wagmi'; 
+import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'; 
+import { Spinner } from "@/app/components/spinner"; 
 import { ABI } from "@/app/hooks/abi/abi"
 
 import { Button } from "@/components/ui/button"; 
@@ -13,16 +14,21 @@ export const ApproveButton = ({amount}: any) => {
 			functionName: 'approve',
 			args: [stakingAddress, BigInt(amount)], 
 		})
-	const { data, isLoading, isSuccess, write } = useContractWrite(config); 
+	const { data, write } = useContractWrite(config); 
+	const { isLoading, isSuccess } = useWaitForTransaction({
+		hash: data?.hash,
+	})
 
 
 	return (
-			<Button 
-				className="bg-clock font-bruno rounded-full"
-				disabled={!write}
-				onClick={() => write?.()}
-			> 
-				Approve
-			</Button>
+		<>
+		<Button 
+			className="bg-clock font-bruno rounded-full"
+			disabled={!write || isLoading}
+			onClick={() => write?.()}
+		> 
+			{isLoading ? <Spinner /> : 'Approve'} 
+		</Button>
+		</>
 	);
 }
