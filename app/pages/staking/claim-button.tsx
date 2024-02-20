@@ -2,6 +2,7 @@ import { useToken, stakingAddress } from "@/app/hooks/token";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'; 
 import { StakingAbi } from "@/app/hooks/abi/stakingAbi"
 import { Spinner } from "@/app/components/spinner"; 
+import { OnSuccess } from "@/app/components/on-success"; 
 import { useState } from "react"; 
 
 import { Button } from "@/components/ui/button"; 
@@ -30,9 +31,7 @@ export const ClaimButton = () => {
 				{isLoading ? <Spinner /> : 'Claim'}
 			</Button>
 			{isSuccess && (
-				<div className="flex justify-center text-muted-foreground"> 
-					Success!
-				</div> 
+				<OnSuccess data={data}/> 
 			)}
 		</>
 	); 

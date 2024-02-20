@@ -2,6 +2,7 @@ import { useToken, stakingAddress, clockTokenAddress } from "@/app/hooks/token";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'; 
 import { Spinner } from "@/app/components/spinner"; 
 import { ABI } from "@/app/hooks/abi/abi"
+import { OnSuccess } from "@/app/components/on-success"; 
 
 import { Button } from "@/components/ui/button"; 
 
@@ -29,6 +30,9 @@ export const ApproveButton = ({amount}: any) => {
 		> 
 			{isLoading ? <Spinner /> : 'Approve'} 
 		</Button>
+			{isSuccess && (
+				<OnSuccess data={data}/> 
+			)}
 		</>
 	);
 }

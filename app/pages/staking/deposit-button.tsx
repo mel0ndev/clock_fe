@@ -2,6 +2,7 @@ import { useToken, stakingAddress } from "@/app/hooks/token";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'; 
 import { StakingAbi } from "@/app/hooks/abi/stakingAbi"; 
 import { Spinner } from "@/app/components/spinner"; 
+import { OnSuccess } from "@/app/components/on-success"; 
 
 import { Button } from "@/components/ui/button"; 
 
@@ -29,9 +30,7 @@ export const DepositButton = ({amount}: any) => {
 				{isLoading ? <Spinner /> : 'Deposit'}
 			</Button>
 			{isSuccess && (
-				<div className="flex justify-center text-muted-foreground"> 
-					Success!	
-				</div> 
+				<OnSuccess data={data}/> 
 			)}
 			</>
 	);

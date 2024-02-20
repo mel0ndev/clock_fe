@@ -8,14 +8,12 @@ export const WithdrawTab = ({input, setInput}: any) => {
 	const { balance, multipliedAmount, unstakedAmount } = useToken();
 	const block = useBlock(); 
 
-
-	//maybe use useEffect here
 	useEffect(() => {
-		if (block && unstakedAmount) {
+		if (block && unstakedAmount && unstakedAmount[0] > 0) {
 			let hours = (block.timestamp - unstakedAmount?.[2]) / BigInt(60 * 60); 
-			setHours(hours); 
+			setHours(BigInt(hours)); 
 		}
-	}, [])
+	}, [block])
 
 	return (
 		<>

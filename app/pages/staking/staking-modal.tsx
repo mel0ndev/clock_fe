@@ -10,8 +10,6 @@ import { Button } from "@/components/ui/button";
 import { useToken, stakingAddress } from "@/app/hooks/token"; 
 import { formatEther, parseEther } from "viem"
 import { usePrepareContractWrite, useContractWrite } from 'wagmi'; 
-import { ABI } from "@/app/hooks/abi/abi"
-import { StakingAbi } from "@/app/hooks/abi/stakingAbi"
 
 export const StakingModal = ({depositOnClose}: any) => {
 	const { allowance } = useToken(); 

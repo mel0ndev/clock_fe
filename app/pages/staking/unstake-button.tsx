@@ -2,6 +2,7 @@ import { useToken, stakingAddress } from "@/app/hooks/token";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'; 
 import { StakingAbi } from "@/app/hooks/abi/stakingAbi"
 import { Spinner } from "@/app/components/spinner"; 
+import { OnSuccess } from "@/app/components/on-success"; 
 
 import { Button } from "@/components/ui/button"; 
 
@@ -28,9 +29,7 @@ export const UnstakeButton = () => {
 				{isLoading ? <Spinner /> : 'Unstake'}
 			</Button>
 			{isSuccess && (
-				<div className="flex justify-center text-muted-foreground"> 
-					Success! Come back in 72 hours to claim!
-				</div> 
+				<OnSuccess data={data} additional="Come back in 72 hours to claim."/> 
 			)}
 		</>
 	); 
