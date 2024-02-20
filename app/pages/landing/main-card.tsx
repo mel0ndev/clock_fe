@@ -40,7 +40,7 @@ export const MainCard = () => {
 
 			<div className="mt-5 flex justify-center md:justify-start"> 
 				<p className="text-center md:justify-start md:text-left p-10"> 
-					Stake your $CLOCK for additional token rewards every hour based on the duration you&apos;ve staked.
+					Stake your $Clock for additional token rewards every hour based on the duration you&apos;ve staked.
 				</p> 
 			</div> 
 
@@ -84,7 +84,7 @@ export const MainCard = () => {
 					</Button>
 				</div>
 				<p className="flex justify-center md:inline-flex">
-					TAX: {tax ? tax.toString() : 'loading'}% 
+					TAX: {tax ? tax.toString() : '5'}% 
 				</p>
 			</div> 
 		</div>
