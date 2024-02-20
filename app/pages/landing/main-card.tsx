@@ -34,7 +34,7 @@ export const MainCard = () => {
 				</div>
 			</div>
 			<div className="mt-2 md:mt-1 md:inline-flex justify-center md:justify-start">
-				<p className="mt-4 md:pl-14 text-2xl flex justify-center md:justify-start mb-4"><i> the $CLOCK is </i></p>
+				<p className="mt-4 md:pl-14 text-2xl flex justify-center md:justify-start mb-4"><i> the $Clock is </i></p>
 				<p className="md:pl-2 flex justify-center md:justify-start text-5xl text-clock font-bruno tracking-widest"> Ticking </p> 
 			</div>
 

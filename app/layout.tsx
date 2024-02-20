@@ -19,7 +19,7 @@ const notoSans = Noto_Sans({
 }); 
 
 export const metadata = {
-  title: "$CLOCK",
+  title: "ClockClock",
 };
 
 export default function RootLayout({
