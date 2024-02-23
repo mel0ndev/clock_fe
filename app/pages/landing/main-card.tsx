@@ -45,7 +45,7 @@ export const MainCard = () => {
 			</div> 
 
 			<div className="mt-10 pb-12 md:pl-10 flex justify-center md:flex-end md:mb-auto md:justify-start"> 
-			<a target="_blank" href="https://google.com" rel="noopener noreferrer">
+			<a target="https://app.uniswap.org/swap?outputCurrency=0x4E60241335aaf1eba97dEE9a8C7d9F0387529286&chain=ethereum" href="https://google.com" rel="noopener noreferrer">
 				<Button
 					className="flex bg-[#00C850] lg:text-lg font-bruno rounded-full pl-6 md:pl-12 pr-8 md:pr-12 pt-7 pb-7 hover:bg-clock justify-center md:justify-start"
 				> 
@@ -67,7 +67,7 @@ export const MainCard = () => {
 				<div className="bg-zinc-900 bg-opacity-60 inline-flex justify-center h-10 items-center rounded-md md:pl-4 md:pr-4 md:ml-5 md:mr-5 ml-2 mr-2"> 
 					{isDesktop ? (
 					<p className="ml-4">
-						Coming soon
+						0x4E60241335aaf1eba97dEE9a8C7d9F0387529286
 					</p>
 					) : (
 					<p className="ml-4 flex justify-center">
