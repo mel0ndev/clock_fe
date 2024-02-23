@@ -14,7 +14,7 @@ export const publicClient = createPublicClient({
 const CLOCK = new Token(ChainId.MAINNET, "0x4E60241335aaf1eba97dEE9a8C7d9F0387529286", 18); 
 const DAI = new Token(ChainId.MAINNET, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18)
 
-export const useCreatePair = async (token: any): Promise<Pair | undefined>  => {
+export const createPair = async (token: any): Promise<Pair | undefined>  => {
 	const pairAddress = Pair.getAddress(token, WETH9[CLOCK.chainId]); 
 
 	const reserves = await publicClient.readContract({	
@@ -35,14 +35,14 @@ export const useCreatePair = async (token: any): Promise<Pair | undefined>  => {
 }
 
 export const getPrice = async (): Promise<number> => {
-	const pair = await useCreatePair(CLOCK); 
+	const pair = await createPair(CLOCK); 
 	let clockPrice; 
 	if (pair) { 
 		const route = new Route([pair], WETH9[CLOCK.chainId], CLOCK); 
 		clockPrice = route.midPrice.invert().toSignificant(6); 
 	}
 
-	const usdPrice = await useCreatePair(DAI); 
+	const usdPrice = await createPair(DAI); 
 	let ethInUSD; 
 	if (usdPrice) { 
 		const route = new Route([usdPrice], WETH9[CLOCK.chainId], DAI); 
