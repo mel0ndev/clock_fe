@@ -3,9 +3,11 @@ import React from "react";
 import {Modal, ModalContent, ModalHeader, ModalBody, useDisclosure} from "@nextui-org/react";
 import { Button } from "@/components/ui/button"; 
 import { CalculatorContent } from "./calculator-content"; 
+import { getPrice } from "@/app/utils/price"; 
 
 export const CalculatorModal = () => {
 	const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
 
 	return (
 		<>

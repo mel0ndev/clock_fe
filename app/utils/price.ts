@@ -3,21 +3,27 @@ import { Route, Pair } from '@uniswap/v2-sdk';
 import { clockTokenAddress } from "@/app/hooks/token";
 import { usePublicClient, useContractRead } from "wagmi"; 
 import { UniswapV2PoolAbi } from "@/app/hooks/abi/uniswapV2PoolAbi"; 
+import { createPublicClient, http } from 'viem'
+import { mainnet } from 'viem/chains'
 
-const CLOCK = new Token(ChainId.MAINNET, "0x4eE24376Aa1CbC1Bb14462de3f15Ca62Ff9AF75F", 18); 
+export const publicClient = createPublicClient({
+  chain: mainnet,
+  transport: http()
+})
 
-export const useCreatePair = async (): Promise<Pair | undefined>  => {
-	const pairAddress = Pair.getAddress(CLOCK, WETH9[CLOCK.chainId]); 
-	
-	const {data: reserves} = useContractRead({
+const CLOCK = new Token(ChainId.MAINNET, "0x4E60241335aaf1eba97dEE9a8C7d9F0387529286", 18); 
+const DAI = new Token(ChainId.MAINNET, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18)
+
+export const useCreatePair = async (token: any): Promise<Pair | undefined>  => {
+	const pairAddress = Pair.getAddress(token, WETH9[CLOCK.chainId]); 
+
+	const reserves = await publicClient.readContract({	
 		address: pairAddress as `0x${string}`,
 		abi: UniswapV2PoolAbi, 
 		functionName: "getReserves",
-		watch: true
 	}); 
 	
-	
-	const tokens = [CLOCK, WETH9[CLOCK.chainId]]; 
+	const tokens = [token, WETH9[CLOCK.chainId]]; 
 	const [token0, token1] = tokens[0].sortsBefore(tokens[1]) ? tokens : [tokens[1], tokens[0]]; 
 	
 	let pair; 
@@ -28,10 +34,21 @@ export const useCreatePair = async (): Promise<Pair | undefined>  => {
   return pair; 
 }
 
-const useGetPrice = async () => {
-	const pair = await useCreatePair(); 
+export const getPrice = async (): Promise<number> => {
+	const pair = await useCreatePair(CLOCK); 
+	let clockPrice; 
 	if (pair) { 
 		const route = new Route([pair], WETH9[CLOCK.chainId], CLOCK); 
-		return route.midPrice.toSignificant(6); 
+		clockPrice = route.midPrice.invert().toSignificant(6); 
 	}
+
+	const usdPrice = await useCreatePair(DAI); 
+	let ethInUSD; 
+	if (usdPrice) { 
+		const route = new Route([usdPrice], WETH9[CLOCK.chainId], DAI); 
+		ethInUSD = route.midPrice.toSignificant(6); 
+	}
+
+	return Number(ethInUSD) * Number(clockPrice); 
 }
+

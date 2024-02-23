@@ -1,14 +1,25 @@
-import { useState } from "react"; 
+import { useState, useEffect } from "react"; 
 import { Button } from "@/components/ui/button"; 
 import { Input } from "@nextui-org/react";
 import { useToken } from "@/app/hooks/token"; 
 import { calculateUnstakedAmount } from "@/app/utils/calculate"
+import { getPrice } from "@/app/utils/price"; 
 
 export const CalculatorContent = () => {
 	const [stakedAmount, setStakedAmount] = useState(''); 
+	const [price, setPrice] = useState(0); 
 	const [days, setDays] = useState(''); 
 	const [hours, setHours] = useState(''); 
 	const [calculatedAmount, setCalculatedAmount] = useState(0); 
+
+	useEffect(() => {
+		const p = async () => {
+			const usd = await getPrice(); 	
+			setPrice(usd); 
+		}
+
+		const price = p(); 
+	}, []); 
 
 	const handleClick = (stakedAmount: string, days: string, hours: string) => {
 		let stakedAmountNum = Number(stakedAmount); 
@@ -20,6 +31,7 @@ export const CalculatorContent = () => {
 			setCalculatedAmount(amount); 
 		}
 	}
+
 
 	return (
 		<div className="grid grid-rows-5 gap-y-2 pl-10 pr-10 pb-10"> 
@@ -127,7 +139,7 @@ export const CalculatorContent = () => {
 					<Input 
 						size="sm" 
 						type="text" 
-						value={calculatedAmount.toString()}
+						value={(calculatedAmount * price).toString()}
 						isReadOnly
 						classNames={{
 							label: "font-bruno text-black/50 dark:text-white/90",

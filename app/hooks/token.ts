@@ -7,6 +7,7 @@ import { mainnet } from 'wagmi/chains'
 import { useEffect, useState } from 'react';
 import { ABI } from "./abi/abi";
 import { StakingAbi } from "@/app/hooks/abi/stakingAbi"
+import { getPrice } from "../utils/price"; 
 import { 
 	useAccount, 
 	useBlockNumber, 
