@@ -18,8 +18,8 @@ import {
 } from 'wagmi'; 
 
 
-export const clockTokenAddress = "0x10DC02799E909c868A7E100819ffDCBc185aaBe9"; 
-export const stakingAddress = "0xc8BA402ebdf6f2d959fd2dc2b311eD45A5f34E9f";
+export const clockTokenAddress = "0x4e60241335aaf1eba97dee9a8c7d9f0387529286"; 
+export const stakingAddress = "0x1d13552a74352efb21a3b99004d722daf677a37a";
 
 export const useToken = () => {
 	const { address } = useAccount(); 
