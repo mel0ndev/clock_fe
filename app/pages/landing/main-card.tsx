@@ -67,7 +67,7 @@ export const MainCard = () => {
 				<div className="bg-zinc-900 bg-opacity-60 inline-flex justify-center h-10 items-center rounded-md md:pl-4 md:pr-4 md:ml-5 md:mr-5 ml-2 mr-2"> 
 					{isDesktop ? (
 					<p className="ml-4">
-						{clockTokenAddress}
+						Coming soon
 					</p>
 					) : (
 					<p className="ml-4 flex justify-center">
