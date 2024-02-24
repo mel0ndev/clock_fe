@@ -12,7 +12,17 @@ export const StakingAbi = [
     },
     {
       "inputs": [],
+      "name": "PeriodAlreadyStarted",
+      "type": "error"
+    },
+    {
+      "inputs": [],
       "name": "PeriodNotFinished",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PeriodStillActive",
       "type": "error"
     },
     {

@@ -28,7 +28,7 @@ export const CalculatorContent = () => {
 		
 		const amount = calculateUnstakedAmount(stakedAmountNum, (daysAmountNum * 24) + hoursAmountNum); 
 		if (amount) {
-			setCalculatedAmount(amount); 
+			setCalculatedAmount(amount - stakedAmountNum); 
 		}
 	}
 

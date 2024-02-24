@@ -33,24 +33,25 @@ export const StakingInfo = () => {
 				</div>
 				
 		{isDesktop ? (
-				<div className="flex flex-col items-center justify-center">
-					<Image
-						src="/clock.svg"
-						alt="clock svg"
+				<div className="flex flex-col items-center justify-center p-5 mt-2">
+					<Image 
+						src="/logo.png"		
+						alt="logo"
 						width={128}
 						height={128}
-						className="mt-5 md:mt-10 md:pt-5"
+						className="rounded-full outline outline-1 outline-clock shadow-md shadow-clock"
 					/>
 				</div>
 		) : (
-				<div className="flex flex-col items-center justify-center">
-					<Image
-						src="/clock.svg"
-						alt="clock svg"
-						width={64}
-						height={64}
-						className="mt-5 md:mt-10 md:pt-5"
+				<div className="flex flex-col items-center justify-center p-5">
+					<Image 
+						src="/logo.png"		
+						alt="logo"
+						width={56}
+						height={56}
+						className="rounded-full outline outline-1 outline-clock shadow-md shadow-clock"
 					/>
+
 				</div>
 		)}
 				<div className="flex flex-col items-center justify-center">
@@ -73,7 +74,7 @@ export const StakingInfo = () => {
 
 				<div className="flex flex-col items-center justify-center">
 					<Button 
-						className="flex bg-[#00C850] font-bruno rounded-full pl-5 pr-5 md:pl-14 md:pr-14 md:text-lg hover:bg-clock"
+						className="flex bg-[#00C850] font-bruno rounded-full md:pl-5 md:pr-5 md:pl-14 md:pr-14 md:text-lg hover:bg-clock"
 						onClick={onOpen}
 					> 
 						<p className="font-bruno text-xs md:text-lg">
