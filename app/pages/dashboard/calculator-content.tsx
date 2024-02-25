@@ -4,8 +4,10 @@ import { Input } from "@nextui-org/react";
 import { useToken } from "@/app/hooks/token"; 
 import { calculateUnstakedAmount } from "@/app/utils/calculate"
 import { getPrice } from "@/app/utils/price"; 
+import { formatEther } from "viem"; 
 
 export const CalculatorContent = () => {
+	const { balance } = useToken(); 
 	const [stakedAmount, setStakedAmount] = useState(''); 
 	const [price, setPrice] = useState(0); 
 	const [days, setDays] = useState(''); 
@@ -32,6 +34,13 @@ export const CalculatorContent = () => {
 		}
 	}
 
+	const handleMaxOnClick = () => {
+		if (balance) {
+			console.log(balance); 
+			setStakedAmount(formatEther(balance).toString()); 
+		}
+	}
+
 
 	return (
 		<div className="grid grid-rows-5 gap-y-2 pl-10 pr-10 pb-10"> 
@@ -41,7 +50,7 @@ export const CalculatorContent = () => {
 				</p> 
 					<Input 
 						size="sm" 
-						type="number" 
+						type="text" 
 						label="Enter Amount:" 
 						value={stakedAmount}
 						onChange={(e) => {
@@ -56,6 +65,16 @@ export const CalculatorContent = () => {
 							label: "font-bruno text-black/50 dark:text-white/90",
 							input: "font-bruno"
 						}}
+						endContent={
+							<Button 
+								size="sm"
+								variant="link"
+								onClick={() => handleMaxOnClick()}
+								className="float-right w-5 h-5"
+							>
+								Max
+							</Button> 
+						}
 					/> 
 			</div> 
 
@@ -145,6 +164,11 @@ export const CalculatorContent = () => {
 							label: "font-bruno text-black/50 dark:text-white/90",
 							input: "font-bruno",
 						}}
+						startContent={
+							<p className="text-muted-foreground"> 
+								$
+							</p>
+						}
 					/> 
 			</div> 
 
