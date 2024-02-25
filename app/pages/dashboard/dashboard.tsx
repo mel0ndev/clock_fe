@@ -24,13 +24,26 @@ export const PaymentComponent = () => {
 	}, []); 
 
 	if (block && unstakedAmount) {
-		hoursStaked = (block.timestamp - unstakedAmount?.[1]) / BigInt(60 * 60); 
+
+		if (unstakedAmount?.[2] == BigInt(0)) {
+			hoursStaked = (block.timestamp - unstakedAmount?.[1]) / BigInt(60 * 60); 
+		} else {
+			hoursStaked = (unstakedAmount?.[2] - unstakedAmount?.[1]) / BigInt(60 * 60); 
+		}
+
 		let stakingAmount = (calculateUnstakedAmount(Number(unstakedAmount?.[0]) / 1e18,  Number(hoursStaked)));
 		if (stakingAmount) {
 			calculatedAmount = stakingAmount - (Number(unstakedAmount?.[0]) / 1e18); 
 		}
-		
-		let stakingAmount24hours = calculateUnstakedAmount(Number(unstakedAmount?.[0]) / 1e18, Number(hoursStaked) + 24); 
+			
+		let stakingAmount24hours;
+		if (hoursStaked > BigInt(24)) {
+			const daysStaked = Math.floor(Number((block.timestamp - unstakedAmount?.[1]) / BigInt(60 * 60 * 24))); 
+			stakingAmount24hours = calculateUnstakedAmount(Number(unstakedAmount?.[0]) / 1e18, 24 * (Number(daysStaked) + 1)); 
+		} else {
+			stakingAmount24hours = calculateUnstakedAmount(Number(unstakedAmount?.[0]) / 1e18, 24); 
+		}
+	
 		if (stakingAmount24hours) {
 			calculatedAmount24Hours = stakingAmount24hours - (Number(unstakedAmount?.[0]) / 1e18); 
 		}
