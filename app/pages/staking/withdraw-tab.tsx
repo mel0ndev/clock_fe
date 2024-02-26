@@ -60,7 +60,7 @@ export const WithdrawTab = ({input, setInput}: any) => {
 				</div>
 
 				</div>
-				<p className="flex justify-center text-xs text-muted-foreground text-center "> There is a 72 waiting period before tokens are released and in that time there are no additional tokens earned </p>
+				<p className="flex justify-center text-xs text-muted-foreground text-center "> There is a 72 hour waiting period before tokens are released and in that time there are no additional tokens earned </p>
 			</div> 
 
 		</>
